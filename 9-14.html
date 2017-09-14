@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- //鼠标移入随便变色
+    <div id="box">
+ 	
+    </div>
+    <style>
+       #box{
+    	   width:40px;
+    	   height: 40px;
+    	   background: red; 
+       }
+    </style> -->
+<script>
+//9-14console.dir
+//   function Person(){    //构造函数也是一个对象
+//   	this.name='name';     //构造函数实例化的对象拥有的属性
+//   	this.age=20;
+//   }	
+//   Person.hello='hello world';  //构造函数的方法属性
+//   Person.prototype={
+//   	alert(this.name);
+//   }
+//   let zhangsan=new Person();
+//   console.log(zhangsan);
+
+// //9-14数组
+//   let arr=[1,2,3,4];
+//   let i=
+//   for (i=0;i<arr.length;i++){
+//   	  console.log(i);
+//   }
+//   for(i in arr)
+//   let i=0;
+//   while(i=0;i<arr.length;i++){
+//   	console.log(arr[i]);
+//   	i++;
+//   }
+
+//9-14数组的创建
+  // let arr1=new Array(5);
+  // let arr2=Array.of（5）;//构造函数上的of方法
+  // let arr=['a','b']
+  // let result=arr.push(1,2,3,4,5,6);
+  // let result2=arr.unshift('x','y','z');
+  // console.log(result);
+  // console.log(result2);
+  // let del=arr.pop();
+  // let shit=arr.shif();
+  // console.log(del);
+  // console.log(shit);
+// 9-14splice
+  // let arr=['a','b','c','d','e'];     
+  // let result=arr.splice(1,2);   //[a,d,e]
+  // let result2=arr.splice(2,1,'x','y');//[a,d,x,y]
+  // console.log(result2);
+  // console.log(arr);
+//
+  // let arr=[1,2,3];
+  // let arr1=['x','y','z'];
+  // for(i=0;i<arr1.length;i++){    //方法1
+  // 	arr.push(arr1[i]);
+  // }
+  // // arr.push(...arr1);     //方法2(...arr拿出值)
+  // let newarr=arr.concat(arr1,arr2);
+  // console.log(newarr);
+  // console.log(arr);
+  // let arr=arr.join('-');
+  // console.log(arr);
+  // console.log(arr.reverse);
+  // console.log(arr);
+//9-14排序
+  // let arr=[10,55,99,2,45];
+  // arr.sort();          //ASCII码大小排序
+  // // console.log(arr.sort());
+  // arr.sort(function(a,b){   //大小数排序
+  // 	return a-b <0
+  // });
+  // console.log(arr); 
+//9-14forEach
+   // let arr=[1,2,3];
+   // let sum=0;
+   // let result=arr.forEach(function(value,index){
+   // 	  sum+=value;
+   	 
+   // })
+   // console.log(result);
+// //9-14ou-forEach
+   // let arr=[1,2,3,4,8];
+   // let ou=[];
+   // arr.forEach(function(value,index){
+   // 	  if(value%2==0){
+   // 	  	 ou.push(value)
+   // 	  }
+   // })
+   // console.log(ou);
+// //9-14filert筛选
+   let arr=[1,2,3,4,8];
+   let newarr=arr.filter(function(value,index,obj){
+   	  return value%2=0;
+   })
+   console.log(newarr);
+// //map
+  // let arr=[1,2,3,4,8];
+  // let map=arr.map(function(value,index,obj){
+  // 	 return value+index;
+  // })
+  // // console.log(newarr);
+  // console.log(map);
+// //map
+//   let map=arr.map((value,index)=>value+index)
+// //map箭头
+//   let map=arr.map(value=>value*2);
+//   console.log(map); 
+//9-14去重
+  // let arr=[1,2,3,4,5,1,2,3];
+  // let result=del(arr);
+  // console.log(result);
+  // function del(){
+  // let newarr=[];
+  // for(let i=0;i<arr.length;i++){
+  // 	if(!newarr.includes(arr[i])){
+  //      newarr.push(arr[i]);
+  // 	}
+  // }
+  // return newarr;
+  // }
+//9-14去重2
+//   let arr=[1,2,3,4,5,1,2,3];
+//   let result2=del(arr);
+//   function del(arr){
+//     let newarr=[];
+//     for(let i=0;i<arr.length;i++){
+//     	let flag=true;
+//         for(let j=i+1;j<arr.length;j++){
+//         	if(arr[i]==arr[j]){
+//         	  flag=false;
+//         	  break;
+//         	}
+//         }
+//   	    if(flag){
+//   	    	newarr.push(arr[i]);
+//   	    } 
+//     } 
+//     return newarr;  
+// }
+// console.log(result2);
+//9-14去重3
+  // let arr=[1,2,3,4,5,1,2,3];
+  // let result=del(arr);
+  // function del(arr){
+  // 	let newarr=[];
+  //   for(let i=0;i<arr.length;i++){
+  //      let arr1=[];
+  //      for(let j=i+1;j<arr.length;j++){
+  //      	 arr1.push(arr[j]);
+  //      }
+  //      if(!arr1[i]==arr[i]){
+  //         newarr.push(arr[i]);
+  //      }
+  //   }
+  //   return newarr;
+  // }
+  // console.log(result);
+//9-14去重4（构造函数的原型对象上添加方法）
+  // let arr=[1,2,3,4,5,1,2,3];
+  // Array.prototype.del=function(){
+  //   let newarr=[];
+  //   for(let i=0;i<this.length;i++){
+  //   	let flag=true;
+  //       for(let j=i+1;j<this.length;j++){
+  //       	if(arr[i]==this[j]){
+  //       	  flag=false;
+  //       	  break;
+  //       	}
+  //       }
+  // 	    if(flag){
+  // 	    	newarr.push(this[i]);
+  // 	    } 
+  //   } 
+  //   return newarr;  
+  // }
+  // let result=arr.del();
+  // console.log(result);
+//9-14math abs
+  // console.log(Math.abs (-101));
+  // console.log(Math.max (1,5,5,8));
+  // console.log(Math.min (-1,5,6));
+  // console.log(Math.abs (-101));
+  // console.log(Math.round (10.5)); //11
+  // console.log(Math.round (10.4));  //10
+  // console.log(Math.round (-10.4)); //-10
+  // console.log(Math.round (-10.5));
+  // console.log(Math.ceil (10.4));  //11
+  // console.log(Math.ceil (5.5));
+  // console.log(Math.ceil(-10.4));  //-10
+  // console.log(Math.floor(-10.4));  //-11
+//9-14 0~1之间的随机数
+//    for(i=0;i<10;i++){
+//   	console.log(Math.random())
+//   //0~10之间的随机数
+//   	console.log(Math.random()*10)
+//   //10~20
+//     console.log(Math.random()*10+10);
+//     console.log((Math.random()+1)*10);
+// }
+// //9-14鼠标移入
+  // function color(){
+  //   let str='rgb(';
+  //   for(i=0;i<3;i++){
+  //   	let num=Math.round(Math.random()*255);
+  //   	str+=num+',';
+  //   }
+  //   str=str.slice(0,-1);
+  //   str+=')';
+  //   return str;
+  // }
+  // let box=document.getElementById('box');
+  // box.onmouseover=function(){
+  // 	box.style.background=color();
+  // }
+
+//9-14x次幂
+//   console.log(Math.pow(2,3))  //2的三次方
+// //开方
+//   console.log(Math.sqrt(2,3))  //根号2
+//9-14随机取三个1 
+ //  let arr=['a','b','c','d','e'];
+ //  console.log(randomArr(arr,3));
+ //  function randomArr(arr,num1){
+ //    let newarr=[];
+ //    for(i=0;i<num1;i++){
+ //  	   let num=Math.floor(Math.random()*arr.length);
+ //  	   while(newarr.includes(arr[num])){
+ //  	      num=Math.floor(Math.random()*arr.length);
+ //  	   }
+ //  	   newarr.push(arr[num]);
+ //    }
+ //    return newarr;
+ // }
+//9-14随机取三个2
+   // let arr=['a','b','c','d','e'];
+   // console.log(randomArr(arr,3)); 
+   // function randomArr(arr,num1){
+   // 	 let newarr=[];
+   //   while(newarr.length<num1){
+  	//    let num=Math.floor(Math.random()*arr.length);
+  	//    if(!newarr.includes(arr[num])){
+  	//        newarr.push(arr[num]);
+  	//    }
+   //   }
+   //  return newarr;
+   // }
+//9-14随机取三个3
+ //  let arr=['a','b','c','d','e'];
+ //  console.log(randomArr(arr,3));
+ //  function randomArr(arr,num1){
+ //    let newarr=[];
+ //    for(i=0;i<num1;i++){
+ //  	   let num=Math.floor(Math.random()*arr.length);
+ //  	   if(newarr.includes(arr[num])){
+ //  	      num=Math.floor(Math.random()*arr.length);
+ //  	      newarr.push(arr[num]); 
+ //  	   }else{
+ //  	   	 newarr.push(arr[num]); 
+ //  	   }
+ //    }
+ //    return newarr;
+ // }
+//9-14随机取三个4
+ //  let arr=['a','b','c','d','e'];
+ //  console.log(randomArr(arr,3));
+ //  function randomArr(arr,num1){
+ //    let newarr=[];
+ //    for(i=0;i<num1;i++){
+ //  	   let num=Math.floor(Math.random()*arr.length);
+ //  	   if(newarr.includes(arr[num])){
+ //  	   	 i--; 
+ //  	   }else{
+ //  	   	newarr.push(arr[num]);
+ //  	   }
+  	   
+ //    }
+ //    return newarr;
+ // }
+
+
+</script>
+	
+</body>
+</html>
